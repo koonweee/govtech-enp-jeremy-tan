@@ -17,7 +17,7 @@ createStyles({
     marginTop: theme.spacing(10),
     margin: `${theme.spacing(0)} auto`,
     padding: theme.spacing(1),
-    width: 600,
+    width: 1000,
   }
 })
 );

@@ -39,7 +39,7 @@ export function URLForm({ onSubmit }: Props): JSX.Element {
               onChange={handleChange}
               error={touched.url && Boolean(errors.url)}
               helperText={touched.url && errors.url}
-              variant="outlined"
+              variant="filled"
             />
           </Box>
           <Box margin={3}>
