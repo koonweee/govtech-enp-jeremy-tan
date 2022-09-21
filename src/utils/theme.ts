@@ -4,9 +4,7 @@ export const styles = makeStyles((theme: Theme) =>
 createStyles({
   container: {
     display: 'flex',
-    flexWrap: 'wrap',
-    width: 600,
-    margin: `${theme.spacing(0)} auto`
+    justifyContent: 'center',
   },
   result: {
     marginTop: theme.spacing(2),
@@ -17,7 +15,7 @@ createStyles({
     marginTop: theme.spacing(10),
     margin: `${theme.spacing(0)} auto`,
     padding: theme.spacing(1),
-    width: 1000,
+    width: 600,
   }
 })
 );

@@ -1,5 +1,5 @@
 import { trpc } from "@/utils/trpc";
-import { TextField, Button, Box } from "@material-ui/core";
+import { TextField, Button, CircularProgress } from "@material-ui/core";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
@@ -12,7 +12,7 @@ interface FormValues {
 }
 
 export function URLForm({ onSubmit }: Props): JSX.Element {
-  const { mutateAsync: shortenURLMutateAsync, isLoading: shortenURLIsLoading} = trpc.useMutation("shortenURL");
+  const { mutateAsync: shortenURLMutateAsync, isLoading: isShortenURLLoading} = trpc.useMutation("shortenURL");
   return (
     <Formik<FormValues>
       initialValues={{
@@ -31,24 +31,27 @@ export function URLForm({ onSubmit }: Props): JSX.Element {
     >
       {({ values, handleChange, handleSubmit, touched, errors, isValid }) => (
         <form onSubmit={handleSubmit}>
-          <Box margin={5}>
-            <TextField
-              fullWidth
-              id="url"
-              name="url"
-              label="URL to shorten"
-              value={values.url}
-              onChange={handleChange}
-              error={touched.url && Boolean(errors.url)}
-              helperText={touched.url && errors.url}
-              variant="filled"
-            />
-          </Box>
-          <Box margin={5}>
-            <Button color="primary" variant="outlined" fullWidth type="submit" disabled={!isValid || shortenURLIsLoading}>
-              Shorten URL!
-            </Button>
-          </Box>
+          <TextField
+            fullWidth
+            id="url"
+            name="url"
+            label="URL to shorten"
+            value={values.url}
+            onChange={handleChange}
+            error={touched.url && Boolean(errors.url)}
+            helperText={touched.url && errors.url}
+            variant="filled"
+            style={{ marginBottom: "1rem" }}
+          />
+          {
+            isShortenURLLoading ? (
+              <CircularProgress style={{ marginLeft: "auto", marginRight: "auto"}}/>
+            ) : (
+              <Button color="primary" variant="contained" fullWidth type="submit" disabled={!isValid || isShortenURLLoading}>
+                Shorten URL!
+              </Button>
+            )
+          }
         </form>
       )}
     </Formik>
