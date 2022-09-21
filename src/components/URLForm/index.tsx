@@ -20,9 +20,10 @@ export function URLForm({ onSubmit }: Props): JSX.Element {
       }}
       onSubmit={async (values) => {
         // call mutation to get shortened url
+        console.log(process.env.VERCEL_URL);
         const shortenedPath = await shortenURLMutateAsync({url: values.url!});
         onSubmit(shortenedPath);
-        console.log(process.env.VERCEL_URL);
+
       }}
       validationSchema={Yup.object({
         url: Yup.string().url().required('URL is required'),
