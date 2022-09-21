@@ -1,6 +1,5 @@
-import type { NextPage } from 'next'
 import Paper from '@material-ui/core/Paper';
-import { styles } from './theme';
+import { styles } from '../utils/theme';
 import { URLForm } from '@/components/URLForm';
 import { useState } from 'react';
 import { Box, CssBaseline } from '@material-ui/core';
