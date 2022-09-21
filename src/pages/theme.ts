@@ -5,7 +5,7 @@ createStyles({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
-    width: 400,
+    width: 600,
     margin: `${theme.spacing(0)} auto`
   },
   result: {
@@ -15,7 +15,9 @@ createStyles({
   },
   paper: {
     marginTop: theme.spacing(10),
-    padding: theme.spacing(1)
+    margin: `${theme.spacing(0)} auto`,
+    padding: theme.spacing(1),
+    width: 600,
   }
 })
 );

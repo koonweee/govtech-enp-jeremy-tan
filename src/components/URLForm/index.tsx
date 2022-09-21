@@ -29,7 +29,7 @@ export function URLForm({ onSubmit }: Props): JSX.Element {
     >
       {({ values, handleChange, handleSubmit, touched, errors, isValid }) => (
         <form onSubmit={handleSubmit}>
-          <Box margin={1}>
+          <Box margin={3}>
             <TextField
               fullWidth
               id="url"
