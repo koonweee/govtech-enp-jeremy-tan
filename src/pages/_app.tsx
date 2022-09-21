@@ -8,7 +8,7 @@ const App: AppType = ({ Component, pageProps }) => {
 
 export default withTRPC<ServerRouter>({
   config({ ctx }) {
-    const url = process.env.VERCEL
+    const url = process.env.NEXT_PUBLIC_VERCEL_URL
       ? `https://govtech-enp-jeremy-tan.vercel.app/api/trpc`
       : "http://localhost:3000/api/trpc";
 
